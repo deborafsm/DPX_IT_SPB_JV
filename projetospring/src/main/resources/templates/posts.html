@@ -1,0 +1,42 @@
+<!Doctype html>
+
+<html xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Post - Spring</title>
+    <!--CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+</head>
+<body>
+
+<header>
+    <!-- As a link -->
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Post - Spring</a>
+        </div>
+    </nav>
+</header>
+<section>
+    <div class="container" style="width:60%;padding-bottom:30px;">
+        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Post</a></li>
+
+            </ol>
+        </nav>
+        <div class="card" th:each="post : ${posts}">
+            <div class="card-body">
+                <p class="card-subtitle mb-2 text-muted" style="font-size: 0.8rem;color: black">
+                    <span th:text="${post.autor}"></span>
+                    <span th:text="${post.data}"></span>
+                </p>
+                <a href="#"><h4 class="card-title" style="font-weight: bold; color: black; padding-top: 5px;"><span  th:text="${post.titulo}"></span></h4></a>
+                <p class="card-text"><span th:text="${#strings.abbreviate(post.texto,400)}"></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
