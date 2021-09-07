@@ -45,6 +45,8 @@ public class ProjetospringpostController {
     @RequestMapping(value = "/newpost", method = RequestMethod.POST)
     public String savePost(@Valid Post post, BindingResult result, RedirectAttributes attributes){
         if(result.hasErrors()){
+
+            attributes.addFlashAttribute("mensagem","Verifique se os campos obrigatórios foram preenchidos.");
             return "redirect:/newpost";
         }
         post.setData(LocalDate.now());
