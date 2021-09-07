@@ -15,16 +15,16 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-   //@NotBlank
+    @NotBlank
     private String titulo;
 
-   // @NotBlank
+    @NotBlank
     private String autor;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-mm-yyyy")
     private LocalDate data;
 
-   // @NotBlank
+    @NotBlank
     //@Lob
     private String texto;
 
